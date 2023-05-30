@@ -108,6 +108,6 @@ Neste guia, você encontrará informações detalhadas sobre como executar o fro
 ![Gold](assets/gold.png)
 ![Product](assets/product.png)
 
-Você pode consultar o código-fonte completo e obter mais informações sobre o projeto no [repositório do projeto](https://github.com/vinicius-delmo/codigos-gitHub/tree/tests-on-jest/FakeStore).
+Você pode consultar o código-fonte completo e obter mais informações sobre o projeto no [repositório do projeto](https://github.com/vinicius-delmo/fakeStore).
 
 ![Header aplicação](assets/footer.png)
