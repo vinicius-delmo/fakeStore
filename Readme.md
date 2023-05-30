@@ -99,10 +99,14 @@ Neste guia, você encontrará informações detalhadas sobre como executar o fro
 ### Home
 
 ![Home](assets/home.png)
+![About](assets/about.png)
+![Categories](assets/categories.png)
 
 ### Products
 
 ![Products](assets/products.png)
+![Gold](assets/gold.png)
+![Product](assets/product.png)
 
 Você pode consultar o código-fonte completo e obter mais informações sobre o projeto no [repositório do projeto](https://github.com/vinicius-delmo/codigos-gitHub/tree/tests-on-jest/FakeStore).
 
