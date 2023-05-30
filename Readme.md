@@ -60,9 +60,9 @@ Como proprietário de uma loja de produtos variados, desejo criar um e-commerce 
 
 ### Diagrama Arquitetural
 
-A arquitetura da aplicação segue o padrão de design CSR(Controller-Service-Repository). As requisições HTTP são tratadas pelos controllers, que contêm a lógica para manipulação dos dados. A comunicação com o banco de dados é feita através dos repositories, que utilizam o Knex como query builder para a execução de consultas.
+A arquitetura da aplicação segue o padrão de design CSR(Controller-Service-Repository). As requisições HTTP feitas através da interface desenvolvida em React são tratadas pelos controllers, que contêm a lógica para manipulação dos dados. A comunicação com o banco de dados é feita através dos repositories, que utilizam o Knex como query builder para a execução de consultas no banco SQLite
 
-![Diagrama](assets/diagramaArquitetural.png)
+![Diagrama de arquitetura](assets/diagrama-arquitetural.png)
 
 ### Diagrama MER (Modelo Entidade-Relacionamento)
 
