@@ -4,18 +4,21 @@
 
 ## Tópicos
 
-- [Negócios](#título-da-seção-1)
-  - [Desafio do cliente](#subtítulo-da-seção-11)
-  - [Solução em linhas gerais](#subtítulo-da-seção-12)
-  - [Persona e User Story](#subtítulo-da-seção-12)
+- [Negócios](#negócios)
+  - [Desafio do cliente](#desafio-do-cliente)
+  - [Solução em linhas gerais](#solução-em-linhas-gerais)
+  - [Persona e User Story](#persona-e-user-story)
   - [Requisitos Funcionais](#subtítulo-da-seção-12)
   - [Persona e User Story](#subtítulo-da-seção-12)
-- [Tech](#título-da-seção-2)
-
-  - [Definições Arquiteturais](#subtítulo-da-seção-21)
-  - [Diagrama MER (Modelo Entidade-Relacionamento)](#subtítulo-da-seção-21)
-
-  - [Subtítulo da Seção 2.2](#subtítulo-da-seção-22)
+- [Tech](#tech)
+  - [Definições Arquiteturais](#definições-arquiteturais)
+    - [Diagrama Arquitetural](#diagramaa-arquitetural)
+    - [Diagrama MER (Modelo Entidade-Relacionamento)](#diagrama-mer-modelo-entidade-relacionamento)
+  - [Tecnologias Utilizadas](#tecnologias-utilizadas)
+  - [Rodando o projeto](#rodando-o-projeto)
+    - [Back-End](#back-end)
+    - [Front-End](#front-end)
+  - [Capturas de tela](#capturas-de-tela)
 
 # Negócios
 
@@ -85,11 +88,11 @@ Essas tecnologias foram escolhidas por sua maturidade, facilidade de uso, comuni
 
 ### Back-End
 
-[back](./server/Readme.md)
+Neste guia, você encontrará informações detalhadas sobre como executar o back end, [clique aqui](./server/Readme.md)
 
 ### Front-End
 
-[front](./web/Readme.md)
+Neste guia, você encontrará informações detalhadas sobre como executar o front end, [clique aqui](./web/Readme.md)
 
 ## Capturas de tela
 
