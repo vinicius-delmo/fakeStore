@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 
 export type ErrorType = {
   message: string;
@@ -10,7 +10,6 @@ export const errorHandler = (
   error: ErrorType,
   req: Request,
   res: Response,
-  next: NextFunction
 ) => {
   const status = error.status ? error.status : 500;
   const errorResponse = {

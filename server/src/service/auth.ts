@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { createUser, findPassword, findUserDB } from '../repositories/user';
+import { userAuth } from "../types";
 
 export async function registerUser(user: string, password: number) {
   const findUser = await findUserDB(user)
@@ -12,12 +13,12 @@ export async function registerUser(user: string, password: number) {
 }
 
 export async function verifyPasswordUser(user: string){
-  const seePassword: any = await findPassword(user)
+  const seePassword = await findPassword(user)
   return seePassword[0].password;
 }
 
 
-export async function authenticateUser(user: any, password: string, passwordHash: string, secretKey: any){
+export async function authenticateUser(user: userAuth, password: string, passwordHash: string, secretKey: string){
   const verifyPassword = await bcrypt.compare(password, passwordHash)
   if(verifyPassword){
     const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '10h' });

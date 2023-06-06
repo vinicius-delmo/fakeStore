@@ -17,7 +17,7 @@ export async function verifyUser(req: Request, res: Response, next: NextFunction
   try{
     const { user, password} = req.body
     const checkUser = await verifyPasswordUser(user);
-    const token = await authenticateUser(user, password, checkUser, process.env.SECRET_KEYS);
+    const token = await authenticateUser(user, password, checkUser, String(process.env.SECRET_KEYS));
     res.json({ token: token });
   }catch (error) {
     next(error)

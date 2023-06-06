@@ -1,6 +1,7 @@
 import productRepository from "../repositories/products";
-import { ProductFromDB } from "../types/index";
+import { ProductFromDB, UpdateProduct, DataBaseProduct  } from "../types/index";
 import { makeError } from "../middlewares/errorHandler";
+
 
 const getAllProducts = async () => {
   const products = await productRepository.selectAllProducts();
@@ -38,8 +39,11 @@ const getProductById = async (id: number) => {
 };
 
 const postProduct = async (product: ProductFromDB) => {
-  const { category, rating, ...data } = product;
+  const { category: name, rating, ...data } = product;
 
+  const category = {
+    name
+  }
   const categoryId = await productRepository.selectProductCategoryId(category);
   if (!categoryId[0].id)
     throw makeError({ message: "Category does not exist", status: 400 });
@@ -57,20 +61,25 @@ const postProduct = async (product: ProductFromDB) => {
   };
 };
 
-const updateProduct = async (product: any) => {
-  const { category, rating = {}, id, ...data } = product;
+const updateProduct = async (product: UpdateProduct) => {
+  const { category: name, rating, id, ...data } = product;
 
-  const productToUpdate = {
+  const category = {
+    name
+  }
+
+  const productToUpdate: DataBaseProduct = {
     id,
     ...data,
-    ...rating,
+    category: name,
+    ...rating
   };
 
   if (category) {
     const selectedCategory = await productRepository.selectProductCategoryId(
       category
     );
-    const categoryId: number | undefined = selectedCategory[0].id;
+    const categoryId = selectedCategory[0].id;
 
     if (!categoryId) {
       throw new Error("Category not found");

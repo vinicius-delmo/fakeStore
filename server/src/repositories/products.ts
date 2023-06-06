@@ -2,6 +2,7 @@ import { Product } from "../types/index";
 import knex from "knex";
 import { Knex } from "knex";
 import config from "../../knexfile";
+import { Category } from "../types";
 
 const knexInstance: Knex = knex(config);
 
@@ -34,8 +35,8 @@ const selectProductById = async (id: number) =>
     .join("categories", "categories.id", "=", "products.category_id")
     .where({ "products.id": id });
 
-const selectProductCategoryId = async (category: any) =>
-  await knexInstance("categories").select("id").where({ name: category });
+const selectProductCategoryId = async (category: Category) =>
+  await knexInstance("categories").select("id").where( category );
 
 const insertProduct = async (product: Product) =>
   await knexInstance("products").insert(product);

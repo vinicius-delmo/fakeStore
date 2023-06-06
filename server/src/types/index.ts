@@ -1,7 +1,9 @@
 type Category = {
-  id?: number;
   name: string;
 };
+interface CategoryId extends Category{
+  id: number;
+}
 
 type Name = {
   name: string;
@@ -28,9 +30,49 @@ type ProductFromDB = {
   price: number;
   description: string;
   image: string;
-  category?: string;
+  category: string;
   category_id?: number;
   rating: { rate: number; count: number };
 };
 
-export { Category, Name, Product, ProductFromDB };
+interface RawProduct  {
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: { rate: number; count: number }
+}
+
+interface UpdateProduct extends RawProduct {
+  id: number;
+}
+
+interface DataBaseProduct  {
+  id?:number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rate: number; 
+  count: number;
+  category_id?: number;
+}
+
+interface userAuth {
+  id: number;
+  user: string
+}
+
+interface UpdateProductTests {
+  id: number;
+  name: string;
+  price: number;
+}
+
+/* interface CustomError {
+  message: string;
+} */
+
+export { Category, Name, Product, ProductFromDB, DataBaseProduct, RawProduct, UpdateProduct, CategoryId, userAuth, UpdateProductTests };

@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import productsServices from "../service/products";
+import { ProductFromDB } from "../types";
 
 const index = async (
   req: Request,
@@ -9,7 +10,7 @@ const index = async (
   try {
     const allProducts = await productsServices.getAllProducts();
     res.status(200).send(allProducts);
-  } catch (error: any) {
+  } catch (error: unknown) {
     next(error);
   }
 };
@@ -23,7 +24,7 @@ const show = async (
     const id: number = parseInt(req.params.id);
     const product = await productsServices.getProductById(id);
     res.status(200).send(product);
-  } catch (error: any) {
+  } catch (error: unknown) {
     next(error);
   }
 };
@@ -35,7 +36,7 @@ const insert = async (
 ): Promise<void> => {
   try {
     const { title, price, description, category, image, rating } = req.body;
-    const newProduct = {
+    const newProduct: ProductFromDB  = {
       title,
       price,
       description,
@@ -47,7 +48,7 @@ const insert = async (
     const insertedProduct = await productsServices.postProduct(newProduct);
 
     res.status(201).send(insertedProduct);
-  } catch (error: any) {
+  } catch (error: unknown) {
     next(error);
   }
 };
@@ -69,7 +70,7 @@ const update = async (
     const updatedProduct = await productsServices.updateProduct(product);
 
     res.status(201).send(updatedProduct);
-  } catch (error: any) {
+  } catch (error: unknown) {
     next(error);
   }
 };
@@ -81,9 +82,9 @@ const remove = async (
 ): Promise<void> => {
   try {
     const id: number = parseInt(req.params.id);
-    const deleteProduct = await productsServices.deleteProduct(id);
+    /* const deleteProduct =  */await productsServices.deleteProduct(id);
     res.status(200).json({ message: "Product successfully deleted" });
-  } catch (error: any) {
+  } catch (error: unknown) {
     next(error);
   }
 };

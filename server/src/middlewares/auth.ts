@@ -3,6 +3,7 @@ import { NextFunction, Request, Response } from "express";
 
 export async function hashPassword(req: Request, res: Response, next: NextFunction) {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const saltRounds = process.env.SALT_ROUNDS!;
     const password = req.body.password;
     const hashedPassword = await bcrypt.hash(password, Number(saltRounds));

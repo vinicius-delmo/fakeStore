@@ -2,7 +2,7 @@ import { describe, expect, jest } from "@jest/globals";
 
 import productService from '../src/service/products'
 import productRepository from '../src/repositories/products'
-
+import { UpdateProduct, UpdateProductTests } from "../src/types";
 
 describe('test products', () => {
     it('should return all products', async () => {
@@ -129,10 +129,10 @@ describe('test products', () => {
     });
     it("should update a product", async () => {
       
-      const updatedProduct: any = { id: 1, name: "Updated Product", price: 99.99 };
+      const updatedProduct: UpdateProductTests = { id: 1, name: "Updated Product", price: 99.99 };
       jest.spyOn(productRepository, "updateProduct").mockResolvedValueOnce(updatedProduct);
   
-      const productToUpdate = { id: 1, name: "Product", price: 49.99 };
+      const productToUpdate: UpdateProductTests = { id: 1, name: "Product", price: 49.99 };
       const result = await productService.updateProduct(productToUpdate);
 
       expect(result).toEqual(productToUpdate);
@@ -143,11 +143,10 @@ describe('test products', () => {
         const result = await productService.deleteProduct(productId);
         expect(result).toBeUndefined();
         expect(productRepository.deleteProductFromDB).toHaveBeenCalledWith(productId);
-      }catch (error: any) {
-        expect(error.message).toBe("Produto não encontrado");
+      }catch (error) {
+        expect((error as Error).message).toBe("Produto não encontrado");
       }
     });
-    
   });
 
 
